@@ -44,11 +44,11 @@ export class ShapeEngineService {
 		}).subscribe(result => {
 			this.isProcess.next(false);
 			const tmp = this.result.getValue();
-			tmp['conduites'] = result.conduites;
-			tmp['cond_chems'] = result.cond_chems;
-			tmp['cables'] = result.cables;
-			tmp['cablelines'] = result.cablelines;
-			tmp['cabconds'] = result.cabconds;
+			tmp['conduites'] = result['conduites'];
+			tmp['cond_chems'] = result['cond_chems'];
+			tmp['cables'] = result['cables'];
+			tmp['cablelines'] = result['cablelines'];
+			tmp['cabconds'] = result['cabconds'];
 			this.result.next(tmp);
 			this.isSecondStep.next(true);
 		});
