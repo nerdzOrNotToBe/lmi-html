@@ -1,20 +1,80 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<mat-toolbar color="primary">My App</mat-toolbar>
+<div fxLayout="row" fxLayoutAlign="center center">
+	<div fxFlex="80%">
+		<mat-card>
+			<mat-card-title>Upload Zip Files</mat-card-title>
+			<hr>
+			<mat-card-content fxLayout="row" fxLayoutAlign="center center">
+				<app-upload fxFlex="50%" [title]="'Noeud Zip'" [path]="'noeud'"></app-upload>
+				<app-upload fxFlex="50%" [title]="'Cheminement Zip'" [path]="'cheminement'"></app-upload>
+			</mat-card-content>
+			<br>
+			<br>
+			<app-select-shape></app-select-shape>
+			<app-map></app-map>
+			<div *ngIf="(shapeEngine.result | async)?.map">
+				<mat-tab-group [dynamicHeight]="true" >
+					<mat-tab label="Noeuds">
+						<app-noeuds-table></app-noeuds-table>
+					</mat-tab>
+					<mat-tab label="Cheminements">
+						<app-cheminements-table></app-cheminements-table>
+					</mat-tab>
+					<mat-tab label="Points Techniques">
+						<app-point-tech-table></app-point-tech-table>
+					</mat-tab>
+					<mat-tab label="Sites Techniques">
+						<app-site-tech-table></app-site-tech-table>
+					</mat-tab>
+					<mat-tab label="Adresses">
+						<app-adresses-table></app-adresses-table>
+					</mat-tab>
+					<mat-tab label="EBPs">
+						<app-ebp-table></app-ebp-table>
+					</mat-tab>
+				</mat-tab-group>
 
+				<mat-card-actions fxLayoutAlign="center center">
+					<button mat-raised-button color="primary" (click)="process()">
+						Lancer
+					</button>
+					<mat-progress-spinner [color]="'accent'" [mode]="'indeterminate'" [diameter]="40" [strokeWidth]="5" fxFlexOffset="20px" *ngIf="isProcess | async">
+					</mat-progress-spinner>
+				</mat-card-actions>
+			</div>
+
+			<div *ngIf="(shapeEngine.result | async)?.map && (shapeEngine.isSecondStep | async)">
+				<mat-tab-group [dynamicHeight]="true" >
+					<mat-tab label="Conduites">
+						<app-conduites-table></app-conduites-table>
+					</mat-tab>
+					<mat-tab label="Cond_Chem">
+						<app-cond-chems-table></app-cond-chems-table>
+					</mat-tab>
+					<mat-tab label="Cables">
+						<app-cables-table></app-cables-table>
+					</mat-tab>
+					<mat-tab label="Cablelines">
+						<app-cablelines-table></app-cablelines-table>
+					</mat-tab>
+					<mat-tab label="Cable Conduite">
+						<app-cab-conds-table></app-cab-conds-table>
+					</mat-tab>
+				</mat-tab-group>
+
+				<mat-card-actions fxLayoutAlign="center center">
+					<button mat-raised-button color="primary" (click)="process()">
+						Lancer
+					</button>
+					<mat-progress-spinner [color]="'accent'" [mode]="'indeterminate'" [diameter]="40" [strokeWidth]="5" fxFlexOffset="20px" *ngIf="isProcess | async">
+					</mat-progress-spinner>
+				</mat-card-actions>
+			</div>
+		</mat-card>
+		<button mat-fab color="primary" class="float-button" *ngIf="(shapeEngine.result | async)?.map">
+			<mat-icon >save</mat-icon>
+		</button>
+	</div>
+
+</div>

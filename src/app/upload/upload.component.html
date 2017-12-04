@@ -1,0 +1,12 @@
+<div fxLayoutAlign="center center">
+	<div>
+		<button mat-raised-button color="primary" (click)="imgFileInput.click()">
+			{{title}}
+		</button>
+		<input hidden type="file" accept="application/zip" #imgFileInput (change)="fileChanged($event)" name="file"/>
+	</div>
+	<div fxFlex="200px" fxFlexOffset="5px">
+		<mat-progress-bar color="'primary'" [value]="value">
+		</mat-progress-bar>
+	</div>
+</div>

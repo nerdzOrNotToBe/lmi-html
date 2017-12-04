@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>Warning</h1>
+<div mat-dialog-content>
+  Il y a quelques problèmes
+  <ul>
+    <li>
+      <span *ngIf="data.cheminements === ''">&#10003; cheminements</span>
+      <span *ngIf="data.cheminements !== ''">{{data.cheminements}}</span>
+    </li>
+    <li>
+      <span *ngIf="data.noeuds === ''">&#10003; noeuds</span>
+      <span *ngIf="data.noeuds !== ''">{{data.noeuds}}</span>
+    </li>
+    <li>
+      <span *ngIf="data.pts === ''">&#10003; points techniques</span>
+      <span *ngIf="data.pts !== ''">{{data.pts}}</span>
+    </li>
+    <li>
+      <span *ngIf="data.sts === ''">&#10003; sites techniques</span>
+      <span *ngIf="data.sts !== ''">{{data.sts}}</span>
+    </li>
+    <li>
+      <span *ngIf="data.adresses === ''">&#10003; adresses</span>
+      <span *ngIf="data.adresses !== ''">{{data.adresses}}</span>
+    </li>
+    <li>
+      <span *ngIf="data.ebps === ''">&#10003; EBPs</span>
+      <span *ngIf="data.ebps !== ''">{{data.ebps}}</span>
+    </li>
+  </ul>
+</div>

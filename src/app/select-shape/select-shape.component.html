@@ -1,0 +1,33 @@
+<mat-card-title>Selectionner les shapes</mat-card-title>
+<hr>
+<mat-card-content>
+	<div fxLayoutAlign="space-around center">
+		<div>
+			<mat-form-field>
+				<mat-select placeholder="Selectionner un Shape noeud" [(ngModel)]="noeudSelected" name="noeud"
+				            [formControl]="form.controls.noeud">
+					<mat-option *ngFor="let noeud of noeuds | async" [value]="noeud">
+						{{noeud}}
+					</mat-option>
+				</mat-select>
+			</mat-form-field>
+		</div>
+		<div>
+			<mat-form-field>
+				<mat-select placeholder="Selectionner un Shape cheminement" [(ngModel)]="cheminementSelected"
+				            name="cheminement" [formControl]="form.controls.cheminement">
+					<mat-option *ngFor="let cheminement of cheminements | async" [value]="cheminement">
+						{{cheminement}}
+					</mat-option>
+				</mat-select>
+			</mat-form-field>
+		</div>
+	</div>
+</mat-card-content>
+<mat-card-actions fxLayoutAlign="center center">
+	<button mat-raised-button color="primary" [disabled]="form.invalid" (click)="process()">
+		Lancer
+	</button>
+	<mat-progress-spinner [color]="'accent'" [mode]="'indeterminate'" [diameter]="40" [strokeWidth]="5" fxFlexOffset="20px" *ngIf="isProcess | async">
+	</mat-progress-spinner>
+</mat-card-actions>

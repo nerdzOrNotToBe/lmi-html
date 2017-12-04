@@ -1,0 +1,14 @@
+<br>
+	<ngui-map [options]="mapOptions" *ngIf="show | async">
+		<marker *ngFor="let noeud of (data | async)?.map?.noeuds" [position]="noeud"
+		        (click)="clicked($event, noeud)"></marker>
+		<polyline *ngFor="let cheminement of (data | async)?.map?.cheminements" [path]="cheminement.coordinnates"
+		          [geodesic]="true"
+		          [strokeColor]="'#FF0000'" [strokeOpacity]="1" [strokeWeight]="3"
+		          (click)="clickedLine($event, cheminement)"></polyline>
+		<info-window id="iw">
+			<div>
+				{{infoWindow.id}}
+			</div>
+		</info-window>
+	</ngui-map>
