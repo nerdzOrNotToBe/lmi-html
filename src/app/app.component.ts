@@ -1,9 +1,7 @@
 import {Component} from '@angular/core';
 import {ShapeEngineService} from './service/shape-engine.service';
-import {FormGroup} from '@angular/forms';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {HandsonTableService} from './service/handsontable.service';
-import {AsyncLocalStorage} from 'angular-async-local-storage';
 
 @Component({
 	selector: 'app-root',
