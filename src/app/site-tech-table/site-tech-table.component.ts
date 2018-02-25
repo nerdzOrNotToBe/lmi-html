@@ -44,7 +44,13 @@ export class SiteTechTableComponent implements OnInit, AfterViewChecked {
 			{data: 'st_abddate', title: 'st_abddate'},
 			{data: 'st_abdsrc', title: 'st_abdsrc'},
 			{data: 'fx_lmicode', title: 'fx_lmicode'},
-		]
+		],
+		cells: function (row, col, prop) {
+			const cellProperties = {};
+			cellProperties['renderer'] = cellNeedValue;
+
+			return cellProperties;
+		}
 	};
 	isLoading = false;
 	data: any[];
@@ -74,4 +80,14 @@ export class SiteTechTableComponent implements OnInit, AfterViewChecked {
 			}
 		}
 	}
+}
+
+
+export function cellNeedValue(instance, td, row, col, prop, value, cellProperties) {
+	Handsontable.renderers.TextRenderer.apply(this, arguments);
+
+	if (prop === 'st_nblines') {
+		td.style.backgroundColor = '#CEC';
+	}
+
 }

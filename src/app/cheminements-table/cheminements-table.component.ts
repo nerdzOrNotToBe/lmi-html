@@ -76,7 +76,13 @@ export class CheminementsTableComponent implements OnInit, AfterViewChecked {
 				source: ['4.7', '8.1', '8.2', '8.3', '8.4', '9.0', '6.0', '5.2', '5.1']
 			},
 			{data: 'infra_lib', title: 'infra_lib'},
-		]
+		],
+		cells: function (row, col, prop) {
+			const cellProperties = {};
+            cellProperties['renderer'] = cellNeedValue;
+
+			return cellProperties;
+		}
 	};
 	isLoading = false;
 	data: any[];
@@ -105,4 +111,15 @@ export class CheminementsTableComponent implements OnInit, AfterViewChecked {
 
 		}
 	}
+
+
+}
+
+export function cellNeedValue(instance, td, row, col, prop, value, cellProperties) {
+	Handsontable.renderers.TextRenderer.apply(this, arguments);
+
+	if (prop === 'cm_mod_pos' || prop === 'cm_passage' || prop === 'cm_revet' || prop === 'cm_remblai' || prop === 'infra_type') {
+		td.style.backgroundColor = '#CEC';
+	}
+
 }
