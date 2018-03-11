@@ -22,7 +22,7 @@ export class CablelinesTableComponent implements OnInit, AfterViewChecked {
 		columns: [
 			{data: 'cl_code', title: 'cl_code'},
 			{data: 'cl_cb_code', title: 'cl_cb_code'},
-			{data: 'cl_long', title: 'cl_long'},
+			{data: 'cl_long', type: 'numeric', title: 'cl_long'},
 			{data: 'cl_comment', title: 'cl_comment'},
 			{data: 'cl_dtclass', title: 'cl_dtclass'},
 			{data: 'cl_geolqlt', title: 'cl_geolqlt'},

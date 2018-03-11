@@ -18,5 +18,7 @@ export class AppComponent {
 	process() {
 		this.handsonTableService.processSecondStep();
 	}
-
+	insert() {
+		this.handsonTableService.insertInDb();
+	}
 }

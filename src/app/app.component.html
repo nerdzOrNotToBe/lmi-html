@@ -64,8 +64,8 @@
 				</mat-tab-group>
 
 				<mat-card-actions fxLayoutAlign="center center">
-					<button mat-raised-button color="primary" (click)="process()">
-						Lancer
+					<button mat-raised-button color="primary" (click)="insert()">
+						Insertion dans la base
 					</button>
 					<mat-progress-spinner [color]="'accent'" [mode]="'indeterminate'" [diameter]="40" [strokeWidth]="5" fxFlexOffset="20px" *ngIf="isProcess | async">
 					</mat-progress-spinner>

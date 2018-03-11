@@ -9,6 +9,7 @@ export class ShapeEngineService {
 	public isProcess = new BehaviorSubject<Boolean>(false);
 	public result = new BehaviorSubject<any>({});
 	public isSecondStep = new BehaviorSubject<Boolean>(false);
+	public isSaving = new BehaviorSubject<Boolean>(false);
 
 	private token: String;
 
@@ -60,5 +61,13 @@ export class ShapeEngineService {
 			let r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
 			return v.toString(16);
 		});
+	}
+
+	insert(data: { cheminements: any[]; noeuds: any[]; pts: any[]; sts: any[]; adresses: any[]; ebps: any[]; conduites: any[]; cond_chems: any[]; cables: any[]; cablelines: any[]; cab_conds: any[] }) {
+		this.isSaving.next(true);
+		this.http.post('http://localhost:8080/shapes/save', data).subscribe(result => {
+			this.isSaving.next(false);
+		});
+
 	}
 }
