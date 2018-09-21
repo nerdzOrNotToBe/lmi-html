@@ -18,6 +18,7 @@ export class PointTechTableComponent implements OnInit, AfterViewChecked {
 		},
 		rowHeaders: true,
 		colHeaders: true,
+		contextMenu: true,
 		fixedColumnsLeft: 1,
 		columns: [
 			{data: 'pt_code', title: 'pt_code'},

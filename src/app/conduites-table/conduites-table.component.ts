@@ -18,6 +18,7 @@ export class ConduitesTableComponent implements OnInit, AfterViewChecked {
 		},
 		rowHeaders: true,
 		colHeaders: true,
+		contextMenu: true,
 		fixedColumnsLeft: 1,
 		columns: [
 			{data: 'cd_code', title: 'cd_code'},

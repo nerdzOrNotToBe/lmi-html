@@ -18,6 +18,7 @@ export class EbpTableComponent implements OnInit, AfterViewChecked {
 		},
 		rowHeaders: true,
 		colHeaders: true,
+		contextMenu: true,
 		fixedColumnsLeft: 1,
 		columns: [
 			{data: 'bp_code', title: 'bp_code'},

@@ -18,6 +18,7 @@ export class CondChemsTableComponent implements OnInit, AfterViewChecked {
 		},
 		rowHeaders: true,
 		colHeaders: true,
+		contextMenu: true,
 		fixedColumnsLeft: 1,
 		columns: [
 			{data: 'dm_cd_code', title: 'dm_cd_code'},

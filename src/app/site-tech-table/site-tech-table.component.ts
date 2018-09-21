@@ -18,6 +18,7 @@ export class SiteTechTableComponent implements OnInit, AfterViewChecked {
 		},
 		rowHeaders: true,
 		colHeaders: true,
+		contextMenu: true,
 		fixedColumnsLeft: 1,
 		columns: [
 			{data: 'st_code', title: 'st_code'},

@@ -18,6 +18,7 @@ export class AdressesTableComponent implements OnInit, AfterViewChecked {
 		},
 		rowHeaders: true,
 		colHeaders: true,
+		contextMenu: true,
 		fixedColumnsLeft: 1,
 		columns: [
 			{data: 'ad_code', title: 'ad_code'},

@@ -18,6 +18,7 @@ export class NoeudsTableComponent implements OnInit, AfterViewChecked {
 		},
 		rowHeaders: true,
 		colHeaders: true,
+		contextMenu: true,
 		fixedColumnsLeft: 1,
 		columns: [
 			{data: 'nd_code', title: 'nd_code'},

@@ -18,6 +18,7 @@ export class CabCondsTableComponent implements OnInit, AfterViewChecked {
 		},
 		rowHeaders: true,
 		colHeaders: true,
+		contextMenu: true,
 		fixedColumnsLeft: 1,
 		columns: [
 			{data: 'cc_cb_code', title: 'cc_cb_code'},

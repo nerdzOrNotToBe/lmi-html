@@ -18,6 +18,7 @@ export class CablelinesTableComponent implements OnInit, AfterViewChecked {
 		},
 		rowHeaders: true,
 		colHeaders: true,
+		contextMenu: true,
 		fixedColumnsLeft: 1,
 		columns: [
 			{data: 'cl_code', title: 'cl_code'},

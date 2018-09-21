@@ -21,6 +21,7 @@ export class CheminementsTableComponent implements OnInit, AfterViewChecked {
 		},
 		rowHeaders: true,
 		colHeaders: true,
+		contextMenu: true,
 		fixedColumnsLeft: 1,
 		columns: [
 			{data: 'cm_code', title: 'cm_code'},
