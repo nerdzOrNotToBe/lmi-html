@@ -56,7 +56,13 @@ export class CablesTableComponent implements OnInit, AfterViewChecked {
 			{data: 'cb_majdate', title: 'cb_majdate'},
 			{data: 'cb_majsrc', title: 'cb_majsrc'},
 			{data: 'cb_abddate', title: 'cb_abddate'},
-		]
+		],
+		cells: function (row, col, prop) {
+			const cellProperties = {};
+			cellProperties['renderer'] = cellNeedValue;
+
+			return cellProperties;
+		}
 	};
 	isLoading = false;
 	data: any[];
@@ -85,4 +91,13 @@ export class CablesTableComponent implements OnInit, AfterViewChecked {
 			}
 		}
 	}
+}
+
+export function cellNeedValue(instance, td, row, col, prop, value, cellProperties) {
+	Handsontable.renderers.TextRenderer.apply(this, arguments);
+
+	if (prop === 'cb_etiquet' || prop === 'cb_r4_code' || prop === 'cb_modulo') {
+		td.style.backgroundColor = '#CEC';
+	}
+
 }

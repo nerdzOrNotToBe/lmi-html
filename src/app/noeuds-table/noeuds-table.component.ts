@@ -40,7 +40,13 @@ export class NoeudsTableComponent implements OnInit, AfterViewChecked {
 			{data: 'nd_abdsrc', title: 'nd_abdsrc'},
 			{data: 'geom', title: 'geom'},
 			{data: 'pointBranchement', title: 'pointBranchement'},
-		]
+		],
+		cells: function (row, col, prop) {
+			const cellProperties = {};
+			cellProperties['renderer'] = cellNeedValue;
+
+			return cellProperties;
+		}
 	};
 	isLoading = false;
 	data: any[];
@@ -69,4 +75,13 @@ export class NoeudsTableComponent implements OnInit, AfterViewChecked {
 			}
 		}
 	}
+}
+
+export function cellNeedValue(instance, td, row, col, prop, value, cellProperties) {
+	Handsontable.renderers.TextRenderer.apply(this, arguments);
+
+	if (prop === 'nd_r4_code' || prop === 'nd_codeext') {
+		td.style.backgroundColor = '#CEC';
+	}
+
 }

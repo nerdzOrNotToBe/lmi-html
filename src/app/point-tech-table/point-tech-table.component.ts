@@ -50,7 +50,13 @@ export class PointTechTableComponent implements OnInit, AfterViewChecked {
 			{data: 'pt_rotatio', title: 'pt_rotatio'},
 			{data: 'pt_detec', title: 'pt_detec'},
 			{data: 'pt_comment', title: 'pt_comment'},
-		]
+		],
+		cells: function (row, col, prop) {
+			const cellProperties = {};
+			cellProperties['renderer'] = cellNeedValue;
+
+			return cellProperties;
+		}
 	};
 	isLoading = false;
 	data: any[];
@@ -80,4 +86,13 @@ export class PointTechTableComponent implements OnInit, AfterViewChecked {
 			}
 		}
 	}
+}
+
+export function cellNeedValue(instance, td, row, col, prop, value, cellProperties) {
+	Handsontable.renderers.TextRenderer.apply(this, arguments);
+
+	if (prop === 'pt_etiquet') {
+		td.style.backgroundColor = '#CEC';
+	}
+
 }
